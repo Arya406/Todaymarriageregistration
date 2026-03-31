@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Today marriage registration | Professional Court Marriage Consultancy</title>
+    <!-- Tailwind CSS + Fonts + Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Sans+Devanagari:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
+        }
+
+        .font-serif-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .accordion-content.open {
+            max-height: 400px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .lang-toggle-btn {
+            transition: all 0.2s;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <!-- 🔹 TOP TRUST BAR + LANGUAGE TOGGLE -->
+    <div
+        class="bg-gradient-to-r from-gray-900 to-gray-800 text-white text-sm py-2.5 px-6 flex flex-wrap justify-between items-center border-b border-white/10">
+        <div class="flex items-center gap-2">
+            <i class="fas fa-gavel text-cyan-400 text-xs"></i>
+            <span data-i18n="top_bar_title">Professional Court Marriage Consultancy</span>
+        </div>
+        <div class="flex gap-5 items-center">
+            <a href="tel:+919876543210" class="hover:text-cyan-300 transition flex items-center gap-1"><i
+                    class="fas fa-phone-alt text-cyan-400 text-xs"></i> +91-8700874774</a>
+            <a href="mailto:legalhelp@email.com"
+                class="hover:text-cyan-300 transition hidden sm:flex items-center gap-1"><i
+                    class="fas fa-envelope text-cyan-400 text-xs"></i> legalhelp@email.com</a>
+            <!-- Language Toggle Button -->
+            <button id="langToggle"
+                class="ml-3 bg-white/10 hover:bg-white/20 rounded-full px-3 py-1 text-xs font-medium flex items-center gap-1 transition-all">
+                <i class="fas fa-language"></i> <span id="langBtnText">English</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- 🔹 STICKY NAVIGATION -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-5 md:px-8 flex justify-between items-center py-3 md:py-4">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-ring text-cyan-600 text-2xl"></i>
+                <h1 class="font-serif-display text-2xl md:text-3xl font-bold bg-gradient-to-r from-gray-800 to-cyan-800 bg-clip-text text-transparent"
+                    data-i18n="logo">Today marriage registration</h1>
+            </div>
+            <ul class="hidden md:flex gap-7 text-gray-700 font-medium text-sm lg:text-base">
+                <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                <li><a href="#services" data-i18n="nav_services">Services</a></li>
+                <li><a href="#eligibility" data-i18n="nav_eligibility">Eligibility & Docs</a></li>
+                <li><a href="#pricing" data-i18n="nav_pricing">Pricing</a></li>
+                <li><a href="#procedure" data-i18n="nav_procedure">Procedure</a></li>
+                <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+            </ul>
+            <a href="#contact"
+                class="hidden md:inline-flex bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-full text-sm font-semibold shadow-md transition-all items-center gap-2"
+                data-i18n="nav_contact_btn">Contact Us</a>
+            <button id="mobileMenuBtn" class="md:hidden text-gray-700 text-2xl focus:outline-none"><i
+                    class="fas fa-bars"></i></button>
+        </div>
+        <div id="mobileMenuPanel" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg pb-4 px-5">
+            <ul class="flex flex-col gap-3 py-3 text-gray-700 font-medium">
+                <li><a href="#home" data-i18n="nav_home">🏠 Home</a></li>
+                <li><a href="#services" data-i18n="nav_services">⚖️ Services</a></li>
+                <li><a href="#eligibility" data-i18n="nav_eligibility">📄 Eligibility & Docs</a></li>
+                <li><a href="#pricing" data-i18n="nav_pricing">💰 Pricing</a></li>
+                <li><a href="#procedure" data-i18n="nav_procedure">📋 Procedure</a></li>
+                <li><a href="#faq" data-i18n="nav_faq">❓ FAQ</a></li>
+                <li><a href="#contact"
+                        class="inline-block bg-cyan-600 text-white px-5 py-2 rounded-full text-center font-semibold mt-2"
+                        data-i18n="nav_contact_btn">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 🔹 HERO SECTION -->
+    <section id="home"
+        class="relative min-h-[90vh] w-full flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        style="background-image: linear-gradient(0deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('assests/LandingImage.png'); background-size: cover; background-position: center 30%;">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative z-10 max-w-5xl mx-auto text-center text-white px-6">
+            <div
+                class="inline-block px-4 py-1 rounded-full bg-white/20 backdrop-blur-sm text-sm font-semibold mb-5 border border-white/30">
+                <i class="fas fa-hand-holding-heart mr-1"></i> <span data-i18n="hero_badge">Trusted by 500+
+                    couples</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight tracking-tight font-serif-display drop-shadow-lg"
+                data-i18n="hero_title">Hassle-Free Court <br> Marriage & Registration</h1>
+            <p class="text-base md:text-xl mt-5 max-w-2xl mx-auto text-gray-100 font-light" data-i18n="hero_subtext">
+                Expert legal assistance under the <span class="font-semibold text-cyan-300">Special Marriage Act</span>.
+                100% secure, confidential & fast-track support.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                <a href="#contact"
+                    class="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3 rounded-full font-semibold text-lg shadow-xl transition transform hover:scale-105 inline-flex items-center gap-2"
+                    data-i18n="hero_cta_book"><i class="fas fa-calendar-alt"></i> Book Consultation</a>
+                <a href="#procedure"
+                    class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-3 rounded-full font-semibold transition inline-flex items-center gap-2"
+                    data-i18n="hero_cta_how"><i class="fas fa-info-circle"></i> How it works</a>
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 mt-10 text-sm font-medium text-gray-200">
+                <span class="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full"><i
+                        class="fas fa-lock text-cyan-400"></i> <span data-i18n="trust_confidential">100%
+                        Confidential</span></span>
+                <span class="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full"><i
+                        class="fas fa-balance-scale text-cyan-400"></i> <span data-i18n="trust_experts">Legal
+                        Experts</span></span>
+                <span class="flex items-center gap-2 bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full"><i
+                        class="fas fa-rocket text-cyan-400"></i> <span data-i18n="trust_fast">Fast
+                        Processing</span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔹 SERVICES SECTION -->
+    <section id="services" class="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-14">
+                <span class="text-cyan-600 font-semibold tracking-wide uppercase text-sm"><i class="fas fa-heart"></i>
+                    <span data-i18n="services_badge">Our Expertise</span></span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 font-serif-display text-gray-800"
+                    data-i18n="services_title">Comprehensive Legal Support</h2>
+                <div class="w-24 h-1 bg-cyan-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-7">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 card-hover">
+                    <div
+                        class="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center mb-5 text-cyan-600 text-2xl">
+                        <i class="fas fa-gavel"></i></div>
+                    <h3 class="text-xl font-bold" data-i18n="service1_title">Court Marriage Registration</h3>
+                    <p class="text-gray-500 mt-2 text-sm leading-relaxed" data-i18n="service1_desc">Full assistance with
+                        marriage registration under Special Marriage Act, 1954. End-to-end legal paperwork.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 card-hover">
+                    <div
+                        class="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center mb-5 text-cyan-600 text-2xl">
+                        <i class="fas fa-file-signature"></i></div>
+                    <h3 class="text-xl font-bold" data-i18n="service2_title">Marriage Certificate</h3>
+                    <p class="text-gray-500 mt-2 text-sm" data-i18n="service2_desc">Obtain your legal marriage
+                        certificate swiftly. Verification & notary support included.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 card-hover">
+                    <div
+                        class="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center mb-5 text-cyan-600 text-2xl">
+                        <i class="fas fa-id-card"></i></div>
+                    <h3 class="text-xl font-bold" data-i18n="service3_title">Documentation Experts</h3>
+                    <p class="text-gray-500 mt-2 text-sm" data-i18n="service3_desc">Affidavits, notice filing, and
+                        document vetting by legal experts. Zero errors guaranteed.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 card-hover">
+                    <div
+                        class="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center mb-5 text-cyan-600 text-2xl">
+                        <i class="fas fa-chalkboard-user"></i></div>
+                    <h3 class="text-xl font-bold" data-i18n="service4_title">24/7 Consultation</h3>
+                    <p class="text-gray-500 mt-2 text-sm" data-i18n="service4_desc">Personalized guidance for
+                        interfaith, inter-caste, and NRI court marriage queries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔹 ELIGIBILITY & DOCS -->
+    <section id="eligibility" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-cyan-600 font-semibold uppercase text-sm tracking-wider"><i
+                        class="fas fa-check-circle"></i> <span data-i18n="eligibility_badge">Requirements</span></span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-1 font-serif-display" data-i18n="eligibility_title">
+                    Eligibility & Documents</h2>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="bg-gray-50 p-7 rounded-2xl shadow-sm border-l-4 border-cyan-500">
+                    <h3 class="text-2xl font-bold flex items-center gap-2"><i
+                            class="fas fa-user-check text-cyan-600"></i> <span data-i18n="eligibility_head">Eligibility
+                            Criteria</span></h3>
+                    <ul class="mt-5 space-y-3 text-gray-700">
+                        <li class="flex gap-3"><i class="fas fa-check-circle text-cyan-500 mt-1"></i> <span
+                                data-i18n="eligibility_1">Both parties must be of legal age: Male ≥21, Female ≥18
+                                years.</span></li>
+                        <li class="flex gap-3"><i class="fas fa-check-circle text-cyan-500 mt-1"></i> <span
+                                data-i18n="eligibility_2">No existing valid marriage (divorce decree or death
+                                certificate if previously married).</span></li>
+                        <li class="flex gap-3"><i class="fas fa-check-circle text-cyan-500 mt-1"></i> <span
+                                data-i18n="eligibility_3">Mental capacity to consent & not within prohibited degrees of
+                                relationship (unless custom permits).</span></li>
+                        <li class="flex gap-3"><i class="fas fa-check-circle text-cyan-500 mt-1"></i> <span
+                                data-i18n="eligibility_4">Special Marriage Act applicable to all religions & interfaith
+                                couples.</span></li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-7 rounded-2xl shadow-sm border-l-4 border-cyan-500">
+                    <h3 class="text-2xl font-bold flex items-center gap-2"><i
+                            class="fas fa-folder-open text-cyan-600"></i> <span data-i18n="docs_head">Required
+                            Documents</span></h3>
+                    <div class="grid sm:grid-cols-2 gap-3 mt-5">
+                        <div><i class="fas fa-id-card text-cyan-500 w-5"></i> <span data-i18n="doc1">PAN / Aadhaar /
+                                Voter ID</span></div>
+                        <div><i class="fas fa-home text-cyan-500"></i> <span data-i18n="doc2">Address Proof
+                                (Rent/Utility)</span></div>
+                        <div><i class="fas fa-calendar-alt text-cyan-500"></i> <span data-i18n="doc3">Date of Birth
+                                Proof (10th/Passport)</span></div>
+                        <div><i class="fas fa-camera text-cyan-500"></i> <span data-i18n="doc4">Passport-size
+                                photographs (6 each)</span></div>
+                        <div><i class="fas fa-gavel text-cyan-500"></i> <span data-i18n="doc5">Affidavit (Marriage
+                                intention)</span></div>
+                        <div><i class="fas fa-church text-cyan-500"></i> <span data-i18n="doc6">Marriage invitation (if
+                                applicable)</span></div>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-4 italic" data-i18n="doc_note">*Additional documents for
+                        divorced/widow cases as per guidelines</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔹 PRICING -->
+    <section id="pricing" class="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12"><span class="text-cyan-600 font-semibold uppercase text-sm"><i
+                        class="fas fa-tags"></i> <span data-i18n="pricing_badge">Affordable plans</span></span>
+                <h2 class="text-3xl md:text-4xl font-bold font-serif-display" data-i18n="pricing_title">Simple,
+                    Transparent Pricing</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div
+                    class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-200 transition hover:shadow-xl">
+                    <div class="p-6 border-b bg-gray-50">
+                        <h3 class="text-2xl font-bold" data-i18n="plan1_name">Essential</h3>
+                        <p class="text-gray-500" data-i18n="plan1_tag">Documentation + Filing</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-4xl font-bold">₹4,999<span class="text-base font-normal text-gray-500"> +
+                                GST</span></p>
+                        <ul class="mt-4 space-y-2 text-sm">
+                            <li><i class="fas fa-check text-cyan-500"></i> <span data-i18n="plan1_feat1">Document
+                                    checklist & drafting</span></li>
+                            <li><i class="fas fa-check text-cyan-500"></i> <span data-i18n="plan1_feat2">Notice
+                                    preparation</span></li>
+                            <li><i class="fas fa-check text-cyan-500"></i> <span data-i18n="plan1_feat3">1 consultation
+                                    session</span></li>
+                            <li><i class="fas fa-times text-gray-300"></i> <span data-i18n="plan1_feat4">Court
+                                    appearance</span></li>
+                        </ul><a href="#contact"
+                            class="mt-6 block text-center bg-gray-800 text-white py-2 rounded-full font-semibold hover:bg-cyan-700 transition"
+                            data-i18n="plan1_btn">Choose Plan</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-xl border-2 border-cyan-400 transform scale-105 relative z-10">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-cyan-600 text-white text-xs px-3 py-1 rounded-full"
+                        data-i18n="popular_badge">🔥 Most Popular</div>
+                    <div class="p-6 border-b bg-gradient-to-r from-cyan-50 to-white">
+                        <h3 class="text-2xl font-bold" data-i18n="plan2_name">Standard</h3>
+                        <p class="text-gray-500" data-i18n="plan2_tag">End-to-End Registration</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-4xl font-bold">₹9,999<span class="text-base font-normal text-gray-500"> +
+                                GST</span></p>
+                        <ul class="mt-4 space-y-2 text-sm">
+                            <li><i class="fas fa-check text-cyan-500"></i> <span data-i18n="plan2_feat1">Everything in
+                                    Essential</span></li>
+                            <li><i class="fas fa-check text-cyan-500"></i> <span data-i18n="plan2_feat2">Full legal
+                                    representation</span></li>
+                            <li><i class="fas fa-check text-cyan-500"></i> <span data-i18n="plan2_feat3">30-day notice
+                                    handling</span></li>
+                            <li><i class="fas fa-check text-cyan-500"></i> <span data-i18n="plan2_feat4">Certificate
+                                    delivery</span></li>
+                        </ul><a href="#contact"
+                            class="mt-6 block text-center bg-cyan-600 text-white py-2 rounded-full font-semibold hover:bg-cyan-700 transition"
+                            data-i18n="plan2_btn">Get Started</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md border border-gray-200 transition hover:shadow-xl">
+                    <div class="p-6 border-b bg-gray-50">
+                        <h3 class="text-2xl font-bold" data-i18n="plan3_name">Premium</h3>
+                        <p class="text-gray-500" data-i18n="plan3_tag">Express + Priority</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-4xl font-bold">₹14,999<span class="text-base font-normal text-gray-500"> +
+                                GST</span></p>
+                        <ul class="mt-4 space-y-2 text-sm">
+                            <li><i class="fas fa-check text-cyan-500"></i> <span data-i18n="plan3_feat1">All Standard
+                                    features</span></li>
+                            <li><i class="fas fa-check text-cyan-500"></i> <span data-i18n="plan3_feat2">Priority
+                                    processing (2-3 weeks)</span></li>
+                            <li><i class="fas fa-check text-cyan-500"></i> <span data-i18n="plan3_feat3">24/7 dedicated
+                                    manager</span></li>
+                            <li><i class="fas fa-check text-cyan-500"></i> <span data-i18n="plan3_feat4">Free notary &
+                                    affidavit</span></li>
+                        </ul><a href="#contact"
+                            class="mt-6 block text-center bg-gray-800 text-white py-2 rounded-full font-semibold hover:bg-cyan-700 transition"
+                            data-i18n="plan3_btn">Contact Expert</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔹 PROCEDURE -->
+    <section id="procedure" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12"><span class="text-cyan-600 uppercase text-sm font-semibold"
+                    data-i18n="procedure_badge">Simple Process</span>
+                <h2 class="text-3xl md:text-4xl font-bold font-serif-display" data-i18n="procedure_title">How Court
+                    Marriage Works</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="flex flex-col items-center text-center p-5">
+                    <div
+                        class="w-16 h-16 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-700 text-2xl font-bold mb-4">
+                        1</div>
+                    <h3 class="text-xl font-bold" data-i18n="step1_title">Consultation & Document Review</h3>
+                    <p class="text-gray-500 mt-2" data-i18n="step1_desc">Schedule a meeting, share documents,
+                        eligibility check by legal experts.</p>
+                </div>
+                <div class="flex flex-col items-center text-center p-5">
+                    <div
+                        class="w-16 h-16 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-700 text-2xl font-bold mb-4">
+                        2</div>
+                    <h3 class="text-xl font-bold" data-i18n="step2_title">Notice of Intended Marriage</h3>
+                    <p class="text-gray-500 mt-2" data-i18n="step2_desc">Filing of notice with Marriage Officer, 30-day
+                        public notice period (objection handling).</p>
+                </div>
+                <div class="flex flex-col items-center text-center p-5">
+                    <div
+                        class="w-16 h-16 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-700 text-2xl font-bold mb-4">
+                        3</div>
+                    <h3 class="text-xl font-bold" data-i18n="step3_title">Registration & Certificate</h3>
+                    <p class="text-gray-500 mt-2" data-i18n="step3_desc">Appearance before registrar, solemnization,
+                        issuance of legal marriage certificate.</p>
+                </div>
+            </div>
+            <div class="mt-10 text-center">
+                <p class="text-sm text-gray-500 bg-gray-50 inline-block px-6 py-2 rounded-full"
+                    data-i18n="procedure_note"><i class="fas fa-clock"></i> Typical timeline: 35–45 days (expedited
+                    options available)</p>
+                    <div class="mt-4">
+                        <a href="court-marriage-procedure.html" class="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-3 rounded-full font-semibold transition shadow-md">
+                          <i class="fas fa-book-open"></i> <span data-i18n="know_more_btn">Know More - Complete Procedure</span>
+                        </a>
+                      </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔹 FAQ ACCORDION -->
+    <section id="faq" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12"><span class="text-cyan-600 font-semibold uppercase text-sm"
+                    data-i18n="faq_badge">Common queries</span>
+                <h2 class="text-3xl font-bold font-serif-display" data-i18n="faq_title">Frequently Asked Questions</h2>
+            </div>
+            <div class="space-y-4" id="faqContainer">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"><button
+                        class="faq-btn w-full text-left p-5 font-semibold flex justify-between items-center text-gray-800"><span
+                            data-i18n="faq_q1">What is the Special Marriage Act, 1954?</span><i
+                            class="fas fa-chevron-down text-cyan-500 transition-transform duration-300"></i></button>
+                    <div class="accordion-content px-5 pb-5 text-gray-600" data-i18n="faq_a1">The Special Marriage Act
+                        allows interfaith, inter-caste, and any two individuals to marry without religious rituals, with
+                        legal registration. It provides a civil form of marriage with a 30-day notice period.</div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200"><button
+                        class="faq-btn w-full text-left p-5 font-semibold flex justify-between items-center"><span
+                            data-i18n="faq_q2">How long does court marriage take?</span><i
+                            class="fas fa-chevron-down text-cyan-500"></i></button>
+                    <div class="accordion-content px-5 pb-5 text-gray-600" data-i18n="faq_a2">Standard procedure takes
+                        35–45 days due to mandatory 30-day notice period. Our premium plan reduces delays and handles
+                        all formalities faster.</div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200"><button
+                        class="faq-btn w-full text-left p-5 font-semibold flex justify-between items-center"><span
+                            data-i18n="faq_q3">Is it mandatory for both parties to be present?</span><i
+                            class="fas fa-chevron-down text-cyan-500"></i></button>
+                    <div class="accordion-content px-5 pb-5 text-gray-600" data-i18n="faq_a3">Yes, both parties must
+                        appear before the Marriage Officer at the time of registration. We assist with appointment
+                        scheduling and representation during notice stage.</div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200"><button
+                        class="faq-btn w-full text-left p-5 font-semibold flex justify-between items-center"><span
+                            data-i18n="faq_q4">Do you help with NRI or inter-country marriage?</span><i
+                            class="fas fa-chevron-down text-cyan-500"></i></button>
+                    <div class="accordion-content px-5 pb-5 text-gray-600" data-i18n="faq_a4">Absolutely. Our legal
+                        experts specialize in NRI court marriages, apostille services, and foreign registration
+                        requirements.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- 🔹 CONTACT -->
+<section id="contact" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+  
+        <!-- LEFT SIDE -->
+        <div>
+          <span class="text-cyan-600 font-semibold uppercase text-sm tracking-wider">
+            <i class="fas fa-headset"></i> 
+            <span data-i18n="contact_badge">Get in Touch</span>
+          </span>
+  
+          <h2 class="text-3xl md:text-4xl font-bold mt-2 font-serif-display" data-i18n="contact_title">
+            Book a Free Consultation
+          </h2>
+  
+          <p class="text-gray-500 mt-4" data-i18n="contact_desc">
+            Speak to our court marriage experts today. 100% confidentiality and transparent guidance.
+          </p>
+  
+          <div class="mt-8 space-y-4">
+            <div class="flex items-center gap-3">
+              <i class="fas fa-map-marker-alt text-cyan-600 w-6 text-xl"></i>
+              <span data-i18n="contact_address">
+                New Delhi, Mumbai, Bengaluru (Pan-India support)
+              </span>
+            </div>
+  
+            <div class="flex items-center gap-3">
+              <i class="fas fa-phone-alt text-cyan-600 w-6 text-xl"></i>
+              <span>+91-8700874774</span>
+            </div>
+  
+            <div class="flex items-center gap-3">
+              <i class="fas fa-envelope text-cyan-600 w-6 text-xl"></i>
+              <span>legalhelp@email.com</span>
+            </div>
+  
+            <div class="flex items-center gap-3">
+              <i class="fas fa-clock text-cyan-600 w-6 text-xl"></i>
+              <span data-i18n="contact_hours">Mon-Sat: 10AM – 7PM</span>
+            </div>
+          </div>
+  
+          <div class="mt-8 flex gap-4 text-2xl text-gray-500">
+            <i class="fab fa-whatsapp hover:text-green-500 cursor-pointer"></i>
+            <i class="fab fa-telegram hover:text-cyan-500 cursor-pointer"></i>
+          </div>
+        </div>
+  
+        <!-- RIGHT SIDE FORM -->
+        <div class="bg-gray-50 p-8 rounded-2xl shadow-md border border-gray-100">
+          
+          <!-- 🔥 UPDATED FORM -->
+          <form onsubmit="sendToWhatsApp(event)" class="space-y-5">
+  
+            <div>
+              <label class="block text-sm font-medium" data-i18n="form_name">Full Name</label>
+              <input id="name" type="text"
+                class="w-full mt-1 p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-cyan-400 outline-none"
+                placeholder="Your Name">
+            </div>
+  
+            <div>
+              <label class="block text-sm font-medium" data-i18n="form_phone">Phone Number</label>
+              <input id="phone" type="tel" required
+                class="w-full mt-1 p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-cyan-400 outline-none"
+                placeholder="">
+            </div>
+  
+            <div>
+              <label class="block text-sm font-medium" data-i18n="form_email">Email</label>
+              <input id="email" type="email"
+                class="w-full mt-1 p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-cyan-400 outline-none"
+                placeholder="you@example.com">
+            </div>
+  
+            <div>
+              <label class="block text-sm font-medium" data-i18n="form_date">Preferred Date</label>
+              <input id="date" type="date"
+                class="w-full mt-1 p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-cyan-400 outline-none">
+            </div>
+  
+            <!-- 🔥 BUTTON -->
+            <button type="submit"
+              class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 rounded-xl transition shadow-md"
+              data-i18n="form_submit">
+              Request Callback (WhatsApp) <i class="fas fa-arrow-right ml-1"></i>
+            </button>
+  
+            <!-- 🔥 TRUST LINE -->
+            <p class="text-xs text-gray-400 text-center" data-i18n="form_note">
+              *No spam, strict confidentiality
+            </p>
+  
+            <!-- 🔥 EXTRA CONVERSION LINE -->
+            <p class="text-green-600 text-center text-sm">
+              ✔ Instant response on WhatsApp
+            </p>
+  
+          </form>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+    <!-- 🔹 FOOTER -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-white font-serif-display text-xl" data-i18n="footer_logo">Today marriage registration</h3>
+                <p class="text-sm mt-2" data-i18n="footer_desc">India’s trusted court marriage consultancy, making legal
+                    unions simple & transparent.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold text-white" data-i18n="footer_links">Quick Links</h4>
+                <ul class="mt-3 space-y-2 text-sm">
+                    <li><a href="#services" data-i18n="nav_services">Services</a></li>
+                    <li><a href="#pricing" data-i18n="nav_pricing">Pricing</a></li>
+                    <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold text-white" data-i18n="footer_support">Support</h4>
+                <ul class="mt-3 space-y-2 text-sm">
+                    <li>📞 +91-8700874774</li>
+                    <li>✉️ legalhelp@email.com</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold text-white" data-i18n="footer_legal">Legal</h4>
+                <ul class="mt-3 space-y-2 text-sm">
+                    <li data-i18n="footer_privacy">Privacy Policy</li>
+                    <li data-i18n="footer_terms">Terms of Service</li>
+                    <li>© 2025 Today marriage registration</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Translations dictionary
+        const translations = {
+            en: {
+                top_bar_title: "Professional Court Marriage Consultancy", logo: "Today marriage registration", nav_home: "Home", nav_services: "Services", nav_eligibility: "Eligibility & Docs", nav_pricing: "Pricing", nav_procedure: "Procedure", nav_faq: "FAQ", nav_contact_btn: "Contact Us",
+                hero_badge: "Trusted by 500+ couples", hero_title: "Hassle-Free Court <br> Marriage & Registration", hero_subtext: "Expert legal assistance under the <span class='font-semibold text-cyan-300'>Special Marriage Act</span>. 100% secure, confidential & fast-track support.", hero_cta_book: "Book Consultation", hero_cta_how: "How it works", trust_confidential: "100% Confidential", trust_experts: "Legal Experts", trust_fast: "Fast Processing",
+                services_badge: "Our Expertise", services_title: "Comprehensive Legal Support", service1_title: "Court Marriage Registration", service1_desc: "Full assistance with marriage registration under Special Marriage Act, 1954. End-to-end legal paperwork.", service2_title: "Marriage Certificate", service2_desc: "Obtain your legal marriage certificate swiftly. Verification & notary support included.", service3_title: "Documentation Experts", service3_desc: "Affidavits, notice filing, and document vetting by legal experts. Zero errors guaranteed.", service4_title: "24/7 Consultation", service4_desc: "Personalized guidance for interfaith, inter-caste, and NRI court marriage queries.",
+                eligibility_badge: "Requirements", eligibility_title: "Eligibility & Documents", eligibility_head: "Eligibility Criteria", eligibility_1: "Both parties must be of legal age: Male ≥21, Female ≥18 years.", eligibility_2: "No existing valid marriage (divorce decree or death certificate if previously married).", eligibility_3: "Mental capacity to consent & not within prohibited degrees of relationship (unless custom permits).", eligibility_4: "Special Marriage Act applicable to all religions & interfaith couples.", docs_head: "Required Documents", doc1: "PAN / Aadhaar / Voter ID", doc2: "Address Proof (Rent/Utility)", doc3: "Date of Birth Proof (10th/Passport)", doc4: "Passport-size photographs (6 each)", doc5: "Affidavit (Marriage intention)", doc6: "Marriage invitation (if applicable)", doc_note: "*Additional documents for divorced/widow cases as per guidelines",
+                pricing_badge: "Affordable plans", pricing_title: "Simple, Transparent Pricing", plan1_name: "Essential", plan1_tag: "Documentation + Filing", plan1_feat1: "Document checklist & drafting", plan1_feat2: "Notice preparation", plan1_feat3: "1 consultation session", plan1_feat4: "Court appearance", plan1_btn: "Choose Plan", popular_badge: "🔥 Most Popular", plan2_name: "Standard", plan2_tag: "End-to-End Registration", plan2_feat1: "Everything in Essential", plan2_feat2: "Full legal representation", plan2_feat3: "30-day notice handling", plan2_feat4: "Certificate delivery", plan2_btn: "Get Started", plan3_name: "Premium", plan3_tag: "Express + Priority", plan3_feat1: "All Standard features", plan3_feat2: "Priority processing (2-3 weeks)", plan3_feat3: "24/7 dedicated manager", plan3_feat4: "Free notary & affidavit", plan3_btn: "Contact Expert",
+                procedure_badge: "Simple Process", procedure_title: "How Court Marriage Works", step1_title: "Consultation & Document Review", step1_desc: "Schedule a meeting, share documents, eligibility check by legal experts.", step2_title: "Notice of Intended Marriage", step2_desc: "Filing of notice with Marriage Officer, 30-day public notice period (objection handling).", step3_title: "Registration & Certificate", step3_desc: "Appearance before registrar, solemnization, issuance of legal marriage certificate.", procedure_note: "<i class='fas fa-clock'></i> Typical timeline: 35–45 days (expedited options available)",
+                faq_badge: "Common queries", faq_title: "Frequently Asked Questions", faq_q1: "What is the Special Marriage Act, 1954?", faq_a1: "The Special Marriage Act allows interfaith, inter-caste, and any two individuals to marry without religious rituals, with legal registration. It provides a civil form of marriage with a 30-day notice period.", faq_q2: "How long does court marriage take?", faq_a2: "Standard procedure takes 35–45 days due to mandatory 30-day notice period. Our premium plan reduces delays and handles all formalities faster.", faq_q3: "Is it mandatory for both parties to be present?", faq_a3: "Yes, both parties must appear before the Marriage Officer at the time of registration. We assist with appointment scheduling and representation during notice stage.", faq_q4: "Do you help with NRI or inter-country marriage?", faq_a4: "Absolutely. Our legal experts specialize in NRI court marriages, apostille services, and foreign registration requirements.",
+                contact_badge: "Get in Touch", contact_title: "Book a Free Consultation", contact_desc: "Speak to our court marriage experts today. 100% confidentiality and transparent guidance.", contact_address: "New Delhi, Mumbai, Bengaluru (Pan-India support)", contact_hours: "Mon-Sat: 10AM – 7PM", form_name: "Full Name", form_phone: "Phone Number", form_email: "Email", form_date: "Preferred Date", form_submit: "Request Callback", form_note: "*No spam, strict confidentiality",
+                footer_logo: "Today marriage registration", footer_desc: "India’s trusted court marriage consultancy, making legal unions simple & transparent.", footer_links: "Quick Links", footer_support: "Support", footer_legal: "Legal", footer_privacy: "Privacy Policy", footer_terms: "Terms of Service"
+            },
+            hi: {
+                top_bar_title: "प्रोफेशनल कोर्ट मैरिज कंसल्टेंसी", logo: "मिलन रजिस्ट्री", nav_home: "होम", nav_services: "सेवाएँ", nav_eligibility: "पात्रता और दस्तावेज़", nav_pricing: "मूल्य निर्धारण", nav_procedure: "प्रक्रिया", nav_faq: "अक्सर पूछे जाने वाले प्रश्न", nav_contact_btn: "संपर्क करें",
+                hero_badge: "500+ जोड़ों का विश्वास", hero_title: "बिना किसी परेशानी के कोर्ट मैरिज <br> और पंजीकरण", hero_subtext: "विशेष विवाह अधिनियम के तहत विशेषज्ञ कानूनी सहायता। 100% सुरक्षित, गोपनीय और त्वरित समर्थन।", hero_cta_book: "परामर्श बुक करें", hero_cta_how: "प्रक्रिया कैसे काम करती है", trust_confidential: "100% गोपनीय", trust_experts: "कानूनी विशेषज्ञ", trust_fast: "तेज़ प्रक्रिया",
+                services_badge: "हमारी विशेषज्ञता", services_title: "व्यापक कानूनी सहायता", service1_title: "कोर्ट मैरिज पंजीकरण", service1_desc: "विशेष विवाह अधिनियम, 1954 के तहत विवाह पंजीकरण में पूर्ण सहायता। अंतिम कानूनी कागजात।", service2_title: "विवाह प्रमाण पत्र", service2_desc: "तेजी से कानूनी विवाह प्रमाण पत्र प्राप्त करें। सत्यापन और नोटरी सहायता शामिल।", service3_title: "दस्तावेज़ विशेषज्ञ", service3_desc: "कानूनी विशेषज्ञों द्वारा हलफनामे, नोटिस दाखिल करना और दस्तावेज़ जांच। शून्य त्रुटि की गारंटी।", service4_title: "24/7 परामर्श", service4_desc: "अंतरधार्मिक, अंतर्जातीय और एनआरआई कोर्ट मैरिज के लिए व्यक्तिगत मार्गदर्शन।",
+                eligibility_badge: "आवश्यकताएँ", eligibility_title: "पात्रता और दस्तावेज़", eligibility_head: "पात्रता मानदंड", eligibility_1: "दोनों पक्षों की कानूनी आयु: पुरुष ≥21, महिला ≥18 वर्ष।", eligibility_2: "कोई मौजूदा वैध विवाह नहीं (यदि पहले विवाहित थे तो तलाक डिक्री या मृत्यु प्रमाण पत्र)।", eligibility_3: "सहमति देने की मानसिक क्षमता और निषिद्ध रिश्ते की श्रेणी में नहीं (जब तक कि रिवाज अनुमति न दे)।", eligibility_4: "विशेष विवाह अधिनियम सभी धर्मों और अंतर्धार्मिक जोड़ों पर लागू।", docs_head: "आवश्यक दस्तावेज़", doc1: "पैन / आधार / वोटर आईडी", doc2: "पता प्रमाण (किराया / उपयोगिता)", doc3: "जन्म तिथि प्रमाण (10वीं / पासपोर्ट)", doc4: "पासपोर्ट साइज़ फ़ोटोग्राफ़ (6 प्रति)", doc5: "हलफनामा (विवाह का इरादा)", doc6: "विवाह निमंत्रण (यदि लागू)", doc_note: "*तलाकशुदा / विधवा मामलों के लिए अतिरिक्त दस्तावेज़ दिशानिर्देशों के अनुसार",
+                pricing_badge: "किफायती योजनाएँ", pricing_title: "सरल, पारदर्शी मूल्य निर्धारण", plan1_name: "आवश्यक", plan1_tag: "दस्तावेज़ीकरण + दाखिला", plan1_feat1: "दस्तावेज़ चेकलिस्ट और मसौदा", plan1_feat2: "नोटिस तैयार करना", plan1_feat3: "1 परामर्श सत्र", plan1_feat4: "अदालत में उपस्थिति", plan1_btn: "योजना चुनें", popular_badge: "🔥 सबसे लोकप्रिय", plan2_name: "मानक", plan2_tag: "एंड-टू-एंड पंजीकरण", plan2_feat1: "आवश्यक योजना की सभी सुविधाएँ", plan2_feat2: "पूर्ण कानूनी प्रतिनिधित्व", plan2_feat3: "30-दिन नोटिस प्रबंधन", plan2_feat4: "प्रमाण पत्र वितरण", plan2_btn: "शुरू करें", plan3_name: "प्रीमियम", plan3_tag: "एक्सप्रेस + प्राथमिकता", plan3_feat1: "मानक योजना की सभी सुविधाएँ", plan3_feat2: "प्राथमिकता प्रक्रिया (2-3 सप्ताह)", plan3_feat3: "24/7 समर्पित प्रबंधक", plan3_feat4: "मुफ्त नोटरी और हलफनामा", plan3_btn: "विशेषज्ञ से संपर्क करें",
+                procedure_badge: "सरल प्रक्रिया", procedure_title: "कोर्ट मैरिज कैसे काम करती है", step1_title: "परामर्श और दस्तावेज़ समीक्षा", step1_desc: "मीटिंग शेड्यूल करें, दस्तावेज़ साझा करें, कानूनी विशेषज्ञों द्वारा पात्रता जाँच।", step2_title: "इच्छित विवाह की सूचना", step2_desc: "विवाह अधिकारी के साथ नोटिस दाखिल करना, 30-दिन की सार्वजनिक सूचना अवधि (आपत्ति प्रबंधन)।", step3_title: "पंजीकरण और प्रमाण पत्र", step3_desc: "रजिस्ट्रार के समक्ष उपस्थिति, विवाह संपन्न, कानूनी विवाह प्रमाण पत्र जारी करना।", procedure_note: "<i class='fas fa-clock'></i> सामान्य समय: 35–45 दिन (त्वरित विकल्प उपलब्ध)",
+                faq_badge: "सामान्य प्रश्न", faq_title: "अक्सर पूछे जाने वाले प्रश्न", faq_q1: "विशेष विवाह अधिनियम, 1954 क्या है?", faq_a1: "विशेष विवाह अधिनियम अंतरधार्मिक, अंतर्जातीय और किन्हीं दो व्यक्तियों को धार्मिक रीति-रिवाजों के बिना कानूनी पंजीकरण के साथ विवाह करने की अनुमति देता है। यह 30-दिन की नोटिस अवधि के साथ नागरिक विवाह प्रदान करता है।", faq_q2: "कोर्ट मैरिज में कितना समय लगता है?", faq_a2: "मानक प्रक्रिया में 35–45 दिन लगते हैं क्योंकि 30-दिन की अनिवार्य नोटिस अवधि होती है। हमारी प्रीमियम योजना देरी को कम करती है और सभी औपचारिकताओं को तेजी से निपटाती है।", faq_q3: "क्या दोनों पक्षों का उपस्थित होना अनिवार्य है?", faq_a3: "हाँ, पंजीकरण के समय दोनों पक्षों को विवाह अधिकारी के समक्ष उपस्थित होना आवश्यक है। हम नोटिस चरण के दौरान अपॉइंटमेंट शेड्यूलिंग और प्रतिनिधित्व में सहायता करते हैं।", faq_q4: "क्या आप एनआरआई या अंतर-देशीय विवाह में मदद करते हैं?", faq_a4: "बिल्कुल। हमारे कानूनी विशेषज्ञ एनआरआई कोर्ट मैरिज, अपोस्टिल सेवाओं और विदेशी पंजीकरण आवश्यकताओं में विशेषज्ञ हैं।",
+                contact_badge: "संपर्क करें", contact_title: "मुफ्त परामर्श बुक करें", contact_desc: "आज ही हमारे कोर्ट मैरिज विशेषज्ञों से बात करें। 100% गोपनीयता और पारदर्शी मार्गदर्शन।", contact_address: "नई दिल्ली, मुंबई, बेंगलुरु (पैन-इंडिया सहायता)", contact_hours: "सोम-शनि: सुबह 10 बजे – शाम 7 बजे", form_name: "पूरा नाम", form_phone: "फोन नंबर", form_email: "ईमेल", form_date: "पसंदीदा तारीख", form_submit: "कॉलबैक का अनुरोध करें", form_note: "*कोई स्पैम नहीं, सख्त गोपनीयता",
+                footer_logo: "मिलन रजिस्ट्री", footer_desc: "भारत की भरोसेमंद कोर्ट मैरिज कंसल्टेंसी, कानूनी विवाह को सरल और पारदर्शी बनाना।", footer_links: "त्वरित लिंक", footer_support: "सहायता", footer_legal: "कानूनी", footer_privacy: "गोपनीयता नीति", footer_terms: "सेवा की शर्तें"
+            }
+        };
+
+        let currentLang = 'en';
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+            document.getElementById('langBtnText').innerText = lang === 'en' ? 'English' : 'हिंदी';
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key] !== undefined) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+            // Also update dynamic FAQ accordion contents that may have been overwritten by innerHTML
+            document.querySelectorAll('.accordion-content').forEach((el, idx) => {
+                const key = el.getAttribute('data-i18n');
+                if (key && translations[lang][key]) el.innerHTML = translations[lang][key];
+            });
+            // Update button texts that might have been changed
+            document.querySelectorAll('button[data-i18n]').forEach(btn => {
+                const key = btn.getAttribute('data-i18n');
+                if (translations[lang][key]) btn.innerHTML = translations[lang][key];
+            });
+        }
+
+        // Toggle button event
+        document.getElementById('langToggle').addEventListener('click', () => {
+            const newLang = currentLang === 'en' ? 'hi' : 'en';
+            setLanguage(newLang);
+        });
+
+        // Load saved language preference
+        const savedLang = localStorage.getItem('lang');
+        if (savedLang && (savedLang === 'en' || savedLang === 'hi')) setLanguage(savedLang);
+        else setLanguage('en');
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        const mobilePanel = document.getElementById('mobileMenuPanel');
+        if (menuBtn && mobilePanel) menuBtn.addEventListener('click', () => mobilePanel.classList.toggle('hidden'));
+
+        // FAQ Accordion
+        const faqButtons = document.querySelectorAll('.faq-btn');
+        faqButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('i:last-child');
+                const isOpen = content.classList.contains('open');
+                document.querySelectorAll('.accordion-content').forEach(item => item.classList.remove('open'));
+                document.querySelectorAll('.faq-btn i:last-child').forEach(ic => ic.classList.remove('rotate-180'));
+                if (!isOpen) { content.classList.add('open'); icon.classList.add('rotate-180'); }
+            });
+        });
+
+        // 🔥 WHATSAPP FORM INTEGRATION
+function sendToWhatsApp(e) {
+    e.preventDefault();
+
+    // Get form values
+    const name = document.querySelector('input[type="text"]').value;
+    const phone = document.querySelector('input[type="tel"]').value;
+    const email = document.querySelector('input[type="email"]').value;
+    const date = document.querySelector('input[type="date"]').value;
+
+    // Validation (important)
+    if (!phone) {
+        alert(currentLang === 'hi' ? 'कृपया फोन नंबर भरें' : 'Please enter phone number');
+        return;
+    }
+
+    // Your WhatsApp number (CHANGE THIS)
+    const whatsappNumber = "919876543210";
+
+    // Dynamic bilingual message
+    let message = "";
+
+    if (currentLang === "hi") {
+        message = `नया कोर्ट मैरिज इनक्वायरी:%0A
+नाम: ${name}%0A
+फोन: ${phone}%0A
+ईमेल: ${email}%0A
+तारीख: ${date}`;
+    } else {
+        message = `New Court Marriage Inquiry:%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Email: ${email}%0A
+Preferred Date: ${date}`;
+    }
+
+    // Open WhatsApp
+    const url = `https://wa.me/${8447586098}?text=${message}`;
+    window.open(url, "_blank");
+}
+    </script>
+</body>
+
+</html>
